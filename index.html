@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Romantic Apology</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            position: relative;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            font-size: 1.2rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .heart {
+            position: fixed;
+            top: -50px;
+            width: 24px;
+            height: 24px;
+            pointer-events: none;
+            animation-name: fall, sway;
+            animation-timing-function: linear, ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .message {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <p>aku minta maaf yaa alya aku udah ngilang tiba tiba, yaa aku tauu aku jahat bangett cuman akuu mauu mintaa maaf, aku juga gabisa ngboongin hati aku. bukan aku berarti belum move on cuman aku kaya mati rasa aja kaya ga enak ngejalanin hubungan gatau kenapa aku juga bingung. maafin akuu yahh. maakasihh yahhh btw kamu perempuan yang paling baik yang aku temuin tapi malah aku yang jahatt akuu minta maaf yahhh, makasihh juga udah nungguin akuu, aku juga ga mau deket cewe lain lagi karna mau fokus benerin diri. maaf yaa alyaa, goodbye to another accidental meeting🤍</p>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '🤍';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's'; // 3 to 6 seconds fall
+            heart.style.fontSize = (16 + Math.random() * 16) + 'px'; // Random size between 16px and 32px
+            document.body.appendChild(heart);
+
+            // Remove heart after animation ends
+            setTimeout(() => {
+                heart.remove();
+            }, 6000); // Match with the longest fall duration
+        }
+
+        // Start creating hearts every 300ms
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
